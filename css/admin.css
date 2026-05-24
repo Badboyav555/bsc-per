@@ -1,0 +1,66 @@
+/* admin.css */
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: linear-gradient(180deg, #ffffff, rgba(243, 244, 246, 0.8));
+  border-right: 1px solid var(--border);
+  padding: 1rem;
+}
+
+.admin-sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-nav a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.25rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.admin-nav a.active {
+  background: rgba(209, 213, 219, 0.4);
+}
+
+.admin-main {
+  padding: 1.5rem;
+  background: var(--bg);
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+#mdPreview {
+  min-height: 150px;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: rgba(240, 249, 255, 0.6);
+}
+
+#mdPreview h1, #mdPreview h2, #mdPreview h3, #mdPreview h4, #mdPreview h5, #mdPreview h5 {
+  margin-top: 0.75rem;
+}
+
+#mdPreview code, #mdPreview pre {
+  background: rgba(255, 240, 240, 0.6);
+  border-radius: 4px;
+  padding: 0.25rem 0.4rem;
+}
+
+#mdPreview pre {
+  margin: 0.5rem 0;
+}
