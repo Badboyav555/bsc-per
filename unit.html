@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unit Notes</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>BSc Notes</h1>
+  </header>
+
+  <main class="container" style="padding:1.5rem;">
+    <div class="glass-card">
+      <h2 data-unit-title=""></h2>
+      <div class="grid grid-cols-2">
+        <a href="notes.html?sem=1&subject=physics&note=unit1" class="btn">Unit 1 Notes</a>
+        <a href="notes.html?sem=1&subject=physics&note=unit2" class="btn">Unit 2 Notes</a>
+        <a href="notes.html?sem=1&subject=physics&note=unit3" class="btn">Unit 3 Notes</a>
+        <a href="notes.html?sem=1&subject=physics&note=unit4" class="btn">Unit 4 Notes</a>
+        <a href="notes.html?sem=1&subject=physics&note=unit5" class="btn">Unit 5 Notes</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const sem = urlParams.get("sem") || "1";
+    const sub = urlParams.get("sub") || "physics";
+    const unit = urlParams.get("unit") || "1";
+
+    document.querySelector("[data-unit-title]").textContent = `Sem ${sem} – ${sub} – Unit ${unit}`;
+  </script>
+</body>
+</html>
