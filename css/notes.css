@@ -1,0 +1,97 @@
+/* notes.css */
+
+#toc {
+  float: right;
+  margin-left: 1rem;
+  font-size: 0.875rem;
+}
+
+#toc ol {
+  padding-left: 1rem;
+  list-style-type: none;
+}
+
+#toc a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  display: block;
+  padding: 0.15rem 0;
+}
+
+#toc a:hover {
+  text-decoration: underline;
+}
+
+#content {
+  font-size: 0.95rem;
+}
+
+/* Blurred part (30% preview) */
+#content.partially-blurred::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 0%, rgba(255,255,255,0.9) 60%);
+  pointer-events: none;
+}
+
+/* Headings */
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Code blocks */
+#content pre {
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  padding: 0.8rem;
+  background: rgba(240, 249, 255, 0.8);
+  border: 1px solid rgba(209, 213, 219, 0.4);
+}
+
+/* Code copy button */
+.code-copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+/* Images */
+#content img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 0.5rem 0;
+}
+
+/* Image zoom modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 1010;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal.show {
+  display: flex;
+}
+
+.image-modal img {
+  max-height: 85vh;
+  max-width: 90vw;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
