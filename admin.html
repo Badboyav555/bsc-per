@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <h2>BSc Admin</h2>
+      <nav class="admin-nav">
+        <a href="#" data-tab="notes">Notes</a>
+        <a href="#" data-tab="leads">Leads</a>
+      </nav>
+    </aside>
+
+    <!-- Main panel -->
+    <main class="admin-main">
+      <div id="notesTab" class="tab-pane active">
+        <div class="glass-card">
+          <h3>Generate Notes</h3>
+          <form id="noteForm">
+            <label>Semester</label>
+            <input type="number" name="sem" min="1" max="6" required />
+            <label>Subject</label>
+            <input type="text" name="subject" required />
+            <label>Unit</label>
+            <input type="number" name="unit" min="1" max="5" required />
+            <label>Content (Markdown)</label>
+            <textarea name="content" rows="8" required></textarea>
+            <button type="submit" class="btn">Generate File</button>
+          </form>
+        </div>
+        <div class="glass-card">
+          <h3>Preview</h3>
+          <div id="mdPreview" style="font-size:0.95rem;"></div>
+        </div>
+      </div>
+
+      <div id="leadsTab" class="tab-pane" style="display:none;">
+        <div class="glass-card">
+          <h3>Leads</h3>
+          <input type="text" placeholder="Search leads..." id="searchLeads" class="btn" style="width:100%;margin-bottom:0.75rem;" />
+          <table id="leadsTable" style="width:100%;border-collapse:collapse;">
+            <thead>
+              <tr>
+                <th style="text-align:left;padding:0.5rem;">Name</th>
+                <th style="text-align:left;padding:0.5rem;">Mobile</th>
+                <th style="text-align:left;padding:0.5rem;">Semester</th>
+                <th style="text-align:left;padding:0.5rem;">Subject</th>
+                <th style="text-align:left;padding:0.5rem;">Note</th>
+                <th style="text-align:left;padding:0.5rem;">Date</th>
+                <th style="text-align:center;padding:0.5rem;">Delete</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <button id="exportCsv" class="btn" style="margin-top:0.75rem;">Export CSV</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
