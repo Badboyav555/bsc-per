@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semester</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>BSc Notes</h1>
+  </header>
+
+  <main class="container" style="padding:1.5rem;">
+    <div class="glass-card">
+      <h2 data-sem="1"></h2>
+      <div class="grid grid-cols-2">
+        <a href="subject.html?sem=1&sub=physics" class="btn">Physics</a>
+        <a href="subject.html?sem=1&sub=chemistry" class="btn">Chemistry</a>
+        <a href="subject.html?sem=1&sub=botany" class="btn">Botany</a>
+        <a href="subject.html?sem=1&sub=zoology" class="btn">Zoology</a>
+        <a href="subject.html?sem=1&sub=maths" class="btn">Maths</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const sem = urlParams.get("sem") || "1";
+    document.querySelector("[data-sem]").textContent = "Semester " + sem;
+  </script>
+</body>
+</html>
