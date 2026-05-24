@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/notes.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <!-- Sticky header -->
+  <header class="app-header">
+    <h1>BSc Notes</h1>
+    <div>
+      <button id="langToggle" class="btn" data-lang="en">HI</button>
+    </div>
+  </header>
+
+  <!-- Reading progress bar -->
+  <div id="progress" style="height:3px;background:var(--accent-blue);width:0%;transition:width 0.1s;"></div>
+
+  <!-- Main content -->
+  <main class="container" style="padding:1.5rem;">
+    <div class="glass-card">
+      <h2 data-note-title=""></h2>
+
+      <!-- TOC (floating on right on desktop) -->
+      <div id="toc" style="max-width:240px;margin-left:auto;margin-bottom:1rem;"></div>
+
+      <!-- Markdown content -->
+      <div id="content"></div>
+
+      <!-- Loading state -->
+      <div id="loading" class="glass-card" style="display:none;text-align:center;padding:2rem;">
+        <p>Loading notes...</p>
+      </div>
+
+      <!-- Error state -->
+      <div id="error" class="glass-card" style="display:none;text-align:center;padding:2rem;">
+        <p>Notes not found. Please try again later.</p>
+        <button id="retry" class="btn">Retry</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Unlock popup -->
+  <div id="unlockModal" class="glass-card" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1000;max-width:420px;display:none;">
+    <h3>Unlock Full Notes</h3>
+    <form id="unlockForm">
+      <label style="display:block;margin:0.5rem 0;">Name</label>
+      <input type="text" name="name" required style="width:100%;padding:0.5rem;border-radius:8px;border:1px solid var(--border);margin-bottom:0.75rem;" />
+      <label style="display:block;margin:0.5rem 0;">Mobile</label>
+      <input type="tel" name="mobile" required style="width:100%;padding:0.5rem;border-radius:8px;border:1px solid var(--border);margin-bottom:0.75rem;" />
+      <button type="submit" class="btn" style="width:100%;">Submit</button>
+    </form>
+  </div>
+
+  <!-- Overlay for modal -->
+  <div id="overlay" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.1);backdrop-filter:blur(3px);z-index:999;display:none;"></div>
+
+  <script src="/js/app.js"></script> <!-- Supabase + shared logic -->
+  <script src="/js/notes.js"></script>
+</body>
+</html>
